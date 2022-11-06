@@ -79,6 +79,7 @@ public final class RegionHandler implements Router {
                     .setGateserverIp(region.Ip).setGateserverPort(region.Port)
                     .setSecretKey(ByteString.copyFrom(Crypto.DISPATCH_SEED))
                     .build();
+            System.out.println(region.Ip+"  "+region.Port);
             // Create an updated region query.
             var updatedQuery = QueryCurrRegionHttpRsp.newBuilder().setRegionInfo(regionInfo).build();
             regions.put(region.Name, new RegionData(updatedQuery, Utils.base64Encode(updatedQuery.toByteString().toByteArray())));
